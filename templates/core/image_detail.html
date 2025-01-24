@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{{ image.title }}{% endblock %}
+
+{% block content %}
+<div class="row image-detail-container">
+    <div class="col-lg-10 mx-auto">
+        <div class="image-detail-card animate-slide-up">
+            <div class="image-detail-wrapper">
+                <img src="{{ image.image.url }}" class="img-fluid full-size-image" alt="{{ image.title }}">
+            </div>
+            <div class="image-detail-content animate-fade-in">
+                <h1 class="image-title">{{ image.title }}</h1>
+                <p class="image-description">{{ image.description }}</p>
+                <a href="{{ image.image.url }}" class="btn btn-primary download-btn" download>
+                    <i class="fas fa-download"></i> Download Full Image
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

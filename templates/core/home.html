@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Slider Section -->
+<div id="mainSlider" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for slider in sliders %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            {% if slider.video %}
+            <video class="d-block w-100" autoplay loop muted>
+                <source src="{{ slider.video.url }}" type="video/mp4">
+            </video>
+            {% else %}
+            <img src="{{ slider.image.url }}" class="d-block w-100" alt="{{ slider.title }}">
+            {% endif %}
+            <div class="carousel-caption d-none d-md-block">
+                <h5>{{ slider.title }}</h5>
+                <p>{{ slider.description }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainSlider" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainSlider" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- Image Gallery -->
+<div class="row" id="imageGallery">
+    {% for image in images %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 image-card">
+            <img src="{{ image.image.url }}" class="card-img-top" alt="{{ image.title }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ image.title }}</h5>
+                <p class="card-text">{{ image.description|truncatewords:20 }}</p>
+                <a href="{% url 'image_detail' image.pk %}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
