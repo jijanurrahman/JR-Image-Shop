@@ -1,1 +1,1 @@
-web: gunicorn jr_image_shop.wsgi 
+web: gunicorn jr_image_shop.wsgi:application 

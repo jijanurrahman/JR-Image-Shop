@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: jr-image-shop
+    env: python
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: gunicorn jr_image_shop.wsgi:application
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: False
+      - key: PYTHON_VERSION
+        value: 3.11 
