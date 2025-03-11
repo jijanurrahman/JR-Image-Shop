@@ -1,0 +1,1 @@
+web: gunicorn jr_image_shop.wsgi 
