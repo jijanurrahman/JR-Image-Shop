@@ -7,6 +7,10 @@ JR Image Shop is a sophisticated Django-based web application for image sharing,
 ## Author
 - [Jijanur Rahman](https://jijanurrahman.netlify.app)
 
+## 🎥 YouTube Demo
+
+[![Project Demo Video](https://img.youtube.com/vi/b6gARxgtl0E/0.jpg)](https://youtu.be/b6gARxgtl0E)
+
 ## Key Features
 
 - User Registration & Authentication
